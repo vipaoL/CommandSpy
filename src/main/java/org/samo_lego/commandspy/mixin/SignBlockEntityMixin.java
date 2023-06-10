@@ -53,7 +53,7 @@ public class SignBlockEntityMixin {
             StrSubstitutor sub = new StrSubstitutor(valuesMap);
 
             // Logging to console
-            CommandSpy.logCommand(sub.replace(message), sign.createCommandSourceStack((ServerPlayer) player), MODID + ".log.signs");
+            //CommandSpy.logCommand(sub.replace(message), sign.createCommandSourceStack((ServerPlayer) player), MODID + ".log.signs");
         }
     }
 }
