@@ -24,12 +24,8 @@ import static org.samo_lego.commandspy.CommandSpy.config;
 @Mixin(SignBlockEntity.class)
 public class SignBlockEntityMixin {
     @Inject(
-            method = "executeClickCommands",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/commands/Commands;executeClickCommandsIfPresent(Lnet/minecraft/commands/CommandSourceStack;Ljava/lang/String;)I"
-            ),
-            locals = LocalCapture.CAPTURE_FAILHARD
+            method = "executeClickCommandsIfPresent",
+            at = @At("HEAD")
 
     )
     private void catchSignCommand(ServerPlayer player, Level level, BlockPos blockPos, CallbackInfoReturnable<Boolean> cir, Component[] texts, int i, int j, Component text, Style style,  ClickEvent clickEvent) {
@@ -55,7 +51,7 @@ public class SignBlockEntityMixin {
             StrSubstitutor sub = new StrSubstitutor(valuesMap);
 
             // Logging to console
-            CommandSpy.logCommand(sub.replace(message), sign.createCommandSourceStack(player, level, blockPos), MODID + ".log.signs");
+            //CommandSpy.logCommand(sub.replace(message), sign.createCommandSourceStack(player, level, blockPos), MODID + ".log.signs");
         }
     }
 }

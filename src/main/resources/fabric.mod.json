@@ -25,6 +25,7 @@
   "mixins": [
     "mixins.cmdspy.json"
   ],
+  "accessWidener" : "cmdspy.accesswidener",
 
   "depends": {
     "fabricloader": ">=0.7.4"
